@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_id": "qrate-192dc",
+    "project_number": "618493298874",
+    "name": "Qrate"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618493298874:android:94285ff6cee73250",
+        "client_id": "android:spider.project.sensei",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "spider.project.sensei"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618493298874-avcsjg14830fuqgurqubu59furetuaud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618493298874:android:2b459e631e9060c0",
+        "client_id": "android:sangam.project.qrate",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "sangam.project.qrate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618493298874-34v3kkbtu1ql71m2phdp0jadt5h0tbq1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sangam.project.qrate",
+            "certificate_hash": "00EAF9BF4D6606AC567E6B6909A736246A2040C3"
+          }
+        },
+        {
+          "client_id": "618493298874-avcsjg14830fuqgurqubu59furetuaud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
