@@ -58,10 +58,10 @@ public class UserActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater=LayoutInflater.from(getContext());
             View v=inflater.inflate(R.layout.single_track_card,parent,false);
-            TextView text= (TextView)v.findViewById(R.id.track_text);
+            final TextView text= (TextView)v.findViewById(R.id.track_text);
             text.setText(names.get(position));
             ImageView image= (ImageView)v.findViewById(R.id.track_pic);
             String url="";
@@ -80,7 +80,9 @@ public class UserActivity extends AppCompatActivity {
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent intent=new Intent(getContext(),MainTopics_user.class);
+                    intent.putExtra("track",names.get(position));
+                    startActivity(intent);
                 }
             });
             return v;

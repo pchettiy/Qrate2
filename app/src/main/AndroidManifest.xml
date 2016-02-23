@@ -23,10 +23,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".AdminPanel" />
-        <activity android:name=".UserSuggest"
-            android:parentActivityName=".UserActivity">
-
-        </activity>
+        <activity
+            android:name=".UserSuggest"
+            android:parentActivityName=".UserActivity" />
+        <activity android:name=".MainTopics_user" />
+        <activity android:name=".SubTopicActivity"></activity>
     </application>
 
 </manifest>
