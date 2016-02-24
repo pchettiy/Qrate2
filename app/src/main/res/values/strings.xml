@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Qrate</string>
     <string name="title_activity_user">UserActivity</string>
+    <string name="title_activity_edit_submission">EditSubmissionActivity</string>
 </resources>

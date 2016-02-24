@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="sangam.project.qrate">
+<manifest package="sangam.project.qrate"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -12,20 +12,27 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Sign_InActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".UserActivity"
             android:label="@string/title_activity_user"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".AdminPanel" />
-        <activity android:name=".UserSuggest"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".AdminActivity"/>
+        <activity android:name=".AdminPanel"/>
+        <activity
+            android:name=".UserSuggest"
             android:parentActivityName=".UserActivity">
-
+        </activity>
+        <activity android:name=".SubmissionsActivity">
+        </activity>
+        <activity
+            android:name=".EditSubmissionActivity"
+            android:label="@string/title_activity_edit_submission"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
