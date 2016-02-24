@@ -27,7 +27,8 @@
             android:name=".UserSuggest"
             android:parentActivityName=".UserActivity" />
         <activity android:name=".MainTopics_user" />
-        <activity android:name=".SubTopicActivity"></activity>
+        <activity android:name=".SubTopicActivity" />
+        <activity android:name=".ResourcesActivity"></activity>
     </application>
 
 </manifest>

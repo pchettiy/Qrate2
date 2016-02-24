@@ -16,7 +16,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="175dp"
-            android:id="@+id/card_layout"
+            android:id="@+id/subtopic_layout"
             android:clickable="true"
             android:layout_gravity="center"
             >

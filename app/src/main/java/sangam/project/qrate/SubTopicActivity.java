@@ -48,8 +48,11 @@ public class SubTopicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sub_topic);
         sharedPreferences=getSharedPreferences("Colorprefs", Context.MODE_PRIVATE);
         color=sharedPreferences.getInt("color", Color.GRAY);
+        Log.d("color",String.valueOf(color));
+
         viewPager= (ViewPager) findViewById(R.id.viewpager);
         adapter=new ViewPagerAdapter(getSupportFragmentManager());
+        new AsyncgetSubTopics().execute(track,maintopic);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -94,15 +97,15 @@ public class SubTopicActivity extends AppCompatActivity {
         protected ArrayList doInBackground(String... params ) {
 
             String result ="";
-            ArrayList<classMainTopic> topiclist=new ArrayList<classMainTopic>();
-            String downloadurl="https://spider.nitt.edu/~praba1110/qrate/tracks.php";
+            ArrayList<String> topiclist=new ArrayList<String>();
+            String downloadurl="https://spider.nitt.edu/~praba1110/qrate/maintopics.php";
             //String downloadurl="http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=44db6a862fba0b067b1930da0d769e98";
             try{
 
                 URL url=new URL(downloadurl);
                 try{
                     HttpURLConnection urlConnection= (HttpURLConnection) url.openConnection();
-                    String postParameters="track"+params[0];
+                    String postParameters="track="+params[0].toLowerCase()+"&maintopic="+params[1].toLowerCase();
                     Log.d("Track",params[0]);
                     urlConnection.setRequestMethod("POST");
                     urlConnection.setRequestProperty("Content-Type",
@@ -128,11 +131,8 @@ public class SubTopicActivity extends AppCompatActivity {
 
 
                     for(int i=0;i<details.length();i++) {
-                        JSONObject single_item = details.getJSONObject(i);
-                        classMainTopic topic=new classMainTopic();
-                        topic.picurl=single_item.getString("url");
-                        topic.title=single_item.getString("maintopic");
-                        topiclist.add(topic);
+                        topiclist.add(details.get(i).toString());
+
                     }
 
                 } catch (IOException e) {
@@ -163,6 +163,7 @@ public class SubTopicActivity extends AppCompatActivity {
                 for (int i = 0; i < output.size(); i++) {
                     adapter.addFragment(Subtopic_Frag.newInstance(track, maintopic,output.get(i).toString(),color),"");
                 }
+                viewPager.setAdapter(adapter);
                //topicslist=output;
             }
         }

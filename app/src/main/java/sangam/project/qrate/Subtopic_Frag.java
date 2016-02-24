@@ -1,10 +1,13 @@
 package sangam.project.qrate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +26,7 @@ public class Subtopic_Frag extends Fragment {
     private String track;
     private String maintopic;
     private String subtopic;
-    private int color;
+    public int color;
     SharedPreferences sharedPreferences;
 
 
@@ -40,6 +43,7 @@ public class Subtopic_Frag extends Fragment {
         args.putString("maintopic", maintopic);
         args.putString("subtopic",subtopic);
         args.putInt("color",color);
+        Log.d("colortest",String.valueOf(color));
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,7 +55,7 @@ public class Subtopic_Frag extends Fragment {
             track = getArguments().getString("track");
             maintopic = getArguments().getString("maintopic");
             subtopic=getArguments().getString("subtopic");
-
+            color=getArguments().getInt("color");
         }
 
     }
@@ -64,9 +68,23 @@ public class Subtopic_Frag extends Fragment {
         View v=inflater.inflate(R.layout.fragment_subtopic_, container, false);
 
         TextView textView = (TextView) v.findViewById(R.id.card_text);
-        textView.setText(track);
-        RelativeLayout cardlayout= (RelativeLayout) v.findViewById(R.id.card_layout);
+        textView.setText(subtopic);
+        /*if(track.equalsIgnoreCase("webdev")){
+            color= Color.CYAN;
+        }*/
+        RelativeLayout cardlayout= (RelativeLayout) v.findViewById(R.id.subtopic_layout);
+        Log.d("layoutcolor",String.valueOf(color));
         cardlayout.setBackgroundColor(color);
+        cardlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),ResourcesActivity.class);
+                intent.putExtra("track",track);
+                intent.putExtra("subtopic",subtopic);
+                intent.putExtra("maintopic",maintopic);
+                startActivity(intent);
+            }
+        });
         return v;
     }
 

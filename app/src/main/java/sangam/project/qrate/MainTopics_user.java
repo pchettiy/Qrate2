@@ -59,7 +59,8 @@ public class MainTopics_user extends AppCompatActivity {
             color=Color.YELLOW;
         topicslist=new ArrayList<classMainTopic>();
         list= (ListView) findViewById(R.id.listView2);
-        list.setAdapter(new mainTopicsAdapter(MainTopics_user.this,topicslist,color) );
+        new AsyncgetTopics().execute(track);
+
 
     }
     public class mainTopicsAdapter extends ArrayAdapter {
@@ -109,7 +110,7 @@ public class MainTopics_user extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-            pd= ProgressDialog.show(MainTopics_user.this,"Submitting","Please wait..",true,false);
+            pd= ProgressDialog.show(MainTopics_user.this,"Fetching data","Please wait..",true,false);
         }
 
         @Override
@@ -124,8 +125,8 @@ public class MainTopics_user extends AppCompatActivity {
                 URL url=new URL(downloadurl);
                 try{
                     HttpURLConnection urlConnection= (HttpURLConnection) url.openConnection();
-                    String postParameters="track"+params[0];
-                    Log.d("Track",params[0]);
+                    String postParameters="track="+params[0].toLowerCase();
+                    Log.d("Track",params[0].toLowerCase());
                     urlConnection.setRequestMethod("POST");
                     urlConnection.setRequestProperty("Content-Type",
                             "application/x-www-form-urlencoded");
@@ -134,14 +135,17 @@ public class MainTopics_user extends AppCompatActivity {
                     PrintWriter out = new PrintWriter(urlConnection.getOutputStream());
                     out.print(postParameters);
                     out.close();
+
                     InputStream inputStream=urlConnection.getInputStream();
+
                     BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
+
                     String line="";
-
                     while((line=bufferedReader.readLine())!=null){
-
+                        Log.d("line",line);
                         result+=line;
                     }
+
                     Log.d("DATA",result);
                     inputStream.close();
                     JSONArray details=new JSONArray(result);
@@ -183,7 +187,7 @@ public class MainTopics_user extends AppCompatActivity {
             }
 
             topicslist=output;
-
+            list.setAdapter(new mainTopicsAdapter(MainTopics_user.this,topicslist,color) );
         }
 
 
