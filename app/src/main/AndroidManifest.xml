@@ -34,6 +34,10 @@
             android:label="@string/title_activity_edit_submission"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <activity android:name=".MainTopics_user" />
+        <activity android:name=".SubTopicActivity" />
+        <activity android:name=".ResourcesActivity"></activity>
     </application>
 
 </manifest>
