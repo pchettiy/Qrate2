@@ -73,8 +73,9 @@ public class Subtopic_Frag extends Fragment {
             color= Color.CYAN;
         }*/
         RelativeLayout cardlayout= (RelativeLayout) v.findViewById(R.id.subtopic_layout);
+        RelativeLayout bglayout= (RelativeLayout) v.findViewById(R.id.framelayout);
         Log.d("layoutcolor",String.valueOf(color));
-        cardlayout.setBackgroundColor(color);
+        bglayout.setBackgroundColor(color);
         cardlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

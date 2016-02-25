@@ -49,7 +49,7 @@ public class SubTopicActivity extends AppCompatActivity {
         sharedPreferences=getSharedPreferences("Colorprefs", Context.MODE_PRIVATE);
         color=sharedPreferences.getInt("color", Color.GRAY);
         Log.d("color",String.valueOf(color));
-
+        getSupportActionBar().setTitle(maintopic);
         viewPager= (ViewPager) findViewById(R.id.viewpager);
         adapter=new ViewPagerAdapter(getSupportFragmentManager());
         new AsyncgetSubTopics().execute(track,maintopic);
