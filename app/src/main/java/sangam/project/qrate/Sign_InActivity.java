@@ -19,6 +19,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,6 +42,7 @@ public class Sign_InActivity extends AppCompatActivity implements View.OnClickLi
     SharedPreferences sharedpreferences ;
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog,pd;
+
     String TAG="sign_in_activity";
     private static final int RC_SIGN_IN = 9001;
     @Override
@@ -168,6 +170,7 @@ public class Sign_InActivity extends AppCompatActivity implements View.OnClickLi
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+
             pd=ProgressDialog.show(Sign_InActivity.this,"Submitting","Please wait..",true,false);
         }
 
@@ -231,6 +234,7 @@ public class Sign_InActivity extends AppCompatActivity implements View.OnClickLi
         @Override
         protected void onPostExecute(ArrayList string) {
             super.onPostExecute(string);
+
             pd.dismiss();
             if(string==null){
                 Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
