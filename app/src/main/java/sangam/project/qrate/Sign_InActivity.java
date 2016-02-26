@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -19,7 +19,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
-import com.pnikosis.materialishprogress.ProgressWheel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,6 +64,8 @@ public class Sign_InActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in_button:
+                Intent intent1=new Intent(getApplicationContext(),AdminActivity.class);
+                startActivity(intent1);
                 signIn();
                 break;
         }
@@ -136,6 +137,8 @@ public class Sign_InActivity extends AppCompatActivity implements View.OnClickLi
 
     // [START signIn]
     private void signIn() {
+        Intent intent1=new Intent(getApplicationContext(),UserActivity.class);
+        startActivity(intent1);
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }

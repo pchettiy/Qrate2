@@ -1,17 +1,14 @@
 package sangam.project.qrate;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -72,8 +69,8 @@ public class Subtopic_Frag extends Fragment {
         /*if(track.equalsIgnoreCase("webdev")){
             color= Color.CYAN;
         }*/
-        RelativeLayout cardlayout= (RelativeLayout) v.findViewById(R.id.subtopic_layout);
-        RelativeLayout bglayout= (RelativeLayout) v.findViewById(R.id.framelayout);
+        LinearLayout cardlayout= (LinearLayout) v.findViewById(R.id.subtopic_layout);
+        LinearLayout bglayout= (LinearLayout) v.findViewById(R.id.framelayout);
         Log.d("layoutcolor",String.valueOf(color));
         bglayout.setBackgroundColor(color);
         cardlayout.setOnClickListener(new View.OnClickListener() {

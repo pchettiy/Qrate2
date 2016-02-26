@@ -5,19 +5,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.design.widget.TabLayout;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,7 +34,6 @@ public class SubTopicActivity extends AppCompatActivity {
     int size;
     int color;
     SharedPreferences sharedPreferences;
-    TabLayout tabLayout;
     ViewPager viewPager;
     ProgressDialog pd;
     String track,maintopic;
@@ -163,6 +161,9 @@ public class SubTopicActivity extends AppCompatActivity {
                 for (int i = 0; i < output.size(); i++) {
                     adapter.addFragment(Subtopic_Frag.newInstance(track, maintopic,output.get(i).toString(),color),"");
                 }
+                int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20*2,getResources().getDisplayMetrics());
+
+                viewPager.setPageMargin(-margin);
                 viewPager.setAdapter(adapter);
                //topicslist=output;
             }
